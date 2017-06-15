@@ -1,0 +1,72 @@
+<div class="container">
+  {{#unless isFormSection}}
+    {{#if enablemsg}}
+      <div class="alert alert-success">Sorry there's no one available right now. Please leave your details below and we'll be getting in touch with you.</div>  
+    {{/if}}
+
+    <div id="requestCallback" class="row mt-4 mb-4">
+      <h3 class="col-12 mt-4 mb-4">We just need some details first</h3>
+      <p class="col-12 mb-4">Leave your details below and we will call you back</p>
+      <form id="requestCallbackForm" class="col-12 col-md-10" name="continuetoRequestCallback">
+        <div class="row">
+          <div class="col-12 col-md-6">
+            {{customer-survey/survey-form/validated-input type="text" labelId='firstName' name='firstName' model=this valuePath="firstName" labelTxt='First Name' class="mt-2"}}
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-12 col-md-6">
+            {{customer-survey/survey-form/validated-input type="text" autocomplete="off" labelId='surname' name='lastName' model=this valuePath="lastName" labelTxt='Surname' class="mt-2"}}
+          </div>
+        </div>
+        <div class="row mt-2">
+          <div class="col-12 col-md-6" style="display:none">
+          {{customer-survey/survey-form/validated-input type="text" autocomplete="off" labelId='business' name='businessName' model=this valuePath="businessName" labelTxt='Business Name' class="mt-2"}}
+          </div>
+        </div>
+        <div class="row mt-2">
+          <div class="col-12 col-md-6">
+            {{customer-survey/survey-form/validated-input type="text" autocomplete="off" labelId='phone' name='telephoneNumber' model=this valuePath="telephoneNumber" labelTxt='Telephone number' class="mt-2"}}
+          </div>
+        </div>
+        <div class="row mt-2">
+          <div class="col-12 col-md-6">
+            {{customer-survey/survey-form/validated-input type="email" autocomplete="off" labelId='email' name='emailAddress' model=this valuePath="emailAddress" labelTxt='Email Address' class="mt-3"}}
+          </div>
+        </div>
+        <div class="row mt-4 spacer">
+          <button model=this type="button" {{action 'submitRequest'}}class="btn btn-lg btn-primary btn-primary__focus mt-3 mb-4" disabled= {{this.validations.isInvalid}}>
+          Call me Back
+          </button>
+        </div>
+      </form>
+    </div>
+  {{/unless}}
+
+  {{#if isShowingBody}}
+    <div class="table-cont" >
+    <h3 class="col-12 mt-4 mb-4">Thanks for contacting us, we will get back to you shortly</h3>
+      <table class="table table-bordered">
+        <thead>
+          <tr>
+            <th>Firstname</th>
+            <th>Lastname</th>
+            <th>Availablity</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+              {{#each inputedData as |item|}}
+                  <td>{{item}}</td>
+              {{/each}}
+              <td>
+                {{#if enablemsg}}
+                  <div class="form-control-feedback">{{message}}</div>
+                  <p>We are open from Monday to Friday - 9:00am to 5:00pm</p>
+                {{/if}}
+              </td>  
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  {{/if}}
+</div>

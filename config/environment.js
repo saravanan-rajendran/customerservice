@@ -6,6 +6,14 @@ module.exports = function(environment) {
     environment: environment,
     rootURL: '/',
     locationType: 'auto',
+	moment: {
+		// Options:
+		// 'all' - all years, all timezones
+		// '2010-2020' - 2010-2020, all timezones
+		// 'none' - no data, just timezone API
+		includeTimezone: 'all'
+		//includeLocales: true
+	},
     EmberENV: {
       FEATURES: {
         // Here you can enable experimental features on an ember canary build
@@ -48,3 +56,7 @@ module.exports = function(environment) {
 
   return ENV;
 };
+
+
+
+

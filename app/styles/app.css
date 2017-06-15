@@ -1,0 +1,6 @@
+.has-danger .form-control {border-color: #E40046;border-width: 2px;}
+.has-success .form-control{border-width: 2px;}
+.form-control-feedback{width:auto;color: #E40046;position: initial; text-align: left;line-height: 20px;}
+.has-danger .form-control.form-control-danger {background-position: 98%;background-size: 5%;background-repeat: no-repeat;background-image: url("http://www.britishgas.co.uk/content/dam/bgbusiness/icons/icon_cross.png")!important; }
+.has-success .form-control.form-control-success {background-position: 98%;background-size: 5%;background-repeat: no-repeat;background-image: url("http://www.britishgas.co.uk/content/dam/bgbusiness/icons/icon_tick.png")!important; }
+.spacer{margin-top:25px;}

@@ -1,0 +1,17 @@
+{{#if labelTxt}}
+  <label for='{{labelId}}' class="form-control-label {{if showErrorMessage 'error-color'}}">{{labelTxt}}</label>
+{{/if}}
+<div class="{{if isCurrencyField 'input-group'}} {{errorFieldClear}}">
+  {{#if isCurrencyField}}
+    <span class="input-group-addon"><strong>£</strong></span>
+  {{/if}}
+  {{input type=type value=value placeholder=placeholder maxlength=maxlength min=min max=max class="form-control" autocomplete=autoComplete
+  classBinding="isValid:form-control-success showErrorClass:form-control-danger" name=valuePath focus-in=(action 'inputFocusIn') key-press=(action 'inputKeyPress')
+  disabled=disabled autofocus=autofocus}}
+</div>
+
+{{#if showErrorMessage}}
+  <div class="form-control-feedback">
+    <i class="fa fa-exclamation-triangle"></i> {{v-get model valuePath 'message'}}
+  </div>
+{{/if}}
